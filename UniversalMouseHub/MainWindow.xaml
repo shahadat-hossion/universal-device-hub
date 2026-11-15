@@ -11,8 +11,9 @@
     <Button Grid.Column="1" Content="↻  Refresh devices" Click="AddDevice_Click" VerticalAlignment="Center"/>
    </Grid>
    <ScrollViewer Grid.Row="2" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-    <WrapPanel HorizontalAlignment="Center">
-     <ItemsControl x:Name="DeviceCards"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
+    <StackPanel>
+     <TextBlock Text="Mice &amp; Keyboards" FontSize="19" FontWeight="SemiBold" Margin="8,0,0,8"/>
+     <ItemsControl x:Name="InputDeviceCards"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel HorizontalAlignment="Left"/></ItemsPanelTemplate></ItemsControl.ItemsPanel>
       <ItemsControl.ItemTemplate><DataTemplate>
        <Border Width="290" Height="470" Background="#15191C" BorderBrush="#355646" BorderThickness="1" CornerRadius="16" Margin="8" Padding="18">
         <Grid><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
@@ -35,6 +36,9 @@
        </DataTemplate.Triggers>
       </DataTemplate></ItemsControl.ItemTemplate>
      </ItemsControl>
+     <TextBlock Text="Headphones, Audio &amp; Bluetooth" FontSize="19" FontWeight="SemiBold" Margin="8,26,0,8"/>
+     <ItemsControl x:Name="AudioDeviceCards" ItemTemplate="{Binding ElementName=InputDeviceCards, Path=ItemTemplate}"><ItemsControl.ItemsPanel><ItemsPanelTemplate><WrapPanel HorizontalAlignment="Left"/></ItemsPanelTemplate></ItemsControl.ItemsPanel></ItemsControl>
+     <TextBlock Text="Add a device" FontSize="19" FontWeight="SemiBold" Margin="8,26,0,8"/>
      <Border Width="290" Height="470" Background="#15191C" BorderBrush="#343A40" BorderThickness="1" CornerRadius="16" Margin="8" Padding="18">
       <Grid><Grid.RowDefinitions><RowDefinition Height="Auto"/><RowDefinition Height="Auto"/><RowDefinition Height="*"/><RowDefinition Height="Auto"/></Grid.RowDefinitions>
        <TextBlock Text="Add device" FontSize="18" FontWeight="Bold"/>
@@ -43,7 +47,7 @@
        <Button Grid.Row="3" Content="＋  Add device" Click="AddDevice_Click" Style="{StaticResource SecondaryButton}"/>
       </Grid>
      </Border>
-    </WrapPanel>
+    </StackPanel>
    </ScrollViewer>
    <Grid Grid.Row="3" Margin="8,20,8,0"><CheckBox x:Name="StartupCheckBox" Content="Start automatically with Windows" Foreground="#DCE1E8" Checked="StartupCheckBox_Changed" Unchecked="StartupCheckBox_Changed"/><TextBlock HorizontalAlignment="Right" Text="Monitoring continues in the system tray" Foreground="{StaticResource MutedBrush}"/></Grid>
   </Grid>

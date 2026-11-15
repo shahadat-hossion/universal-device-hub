@@ -19,6 +19,9 @@
   <ItemGroup>
     <None Include="Assets\UniversalMouseHub.ico" CopyToOutputDirectory="PreserveNewest" />
     <Resource Include="Assets\DeviceImages\*.png" />
+    <Resource Include="Assets\generic-mouse.png" />
+    <Resource Include="Assets\generic-keyboard.png" />
+    <Resource Include="Assets\airpods-pro.png" />
   </ItemGroup>
 
   <ItemGroup>

@@ -18,6 +18,9 @@ Windows users often need a different vendor application for every wireless mouse
 - Includes a validated AJAZZ/NACODEX NJ07 and NJ08 battery provider.
 - Clearly displays **Battery information unavailable** when no reliable value exists.
 - Supports multiple connected devices with dynamic dashboard cards.
+- Organizes mice and keyboards separately from headphones, audio, and Bluetooth accessories.
+- Uses model-specific artwork when available and polished generic mouse or keyboard artwork as a fallback.
+- Includes dedicated AirPods Pro artwork for matching Bluetooth devices.
 - Provides per-device detail pages, low-battery warnings, and charging status when available.
 - Continues monitoring from the Windows system tray.
 - Offers optional automatic startup with Windows.

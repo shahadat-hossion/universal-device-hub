@@ -34,7 +34,8 @@ public partial class MainWindow : System.Windows.Window
     {
         var selectedId = _selectedDevice?.InstanceId;
         try { _devices = await _monitor.GetDevicesAsync(); } catch { _devices = []; }
-        DeviceCards.ItemsSource = _devices;
+        InputDeviceCards.ItemsSource = _devices.Where(device => device.Category is "Mouse" or "Keyboard").ToList();
+        AudioDeviceCards.ItemsSource = _devices.Where(device => device.Category is not ("Mouse" or "Keyboard")).ToList();
         _selectedDevice = _devices.FirstOrDefault(d => d.InstanceId == selectedId) ?? _devices.FirstOrDefault();
         if (DetailPanel.Visibility == Visibility.Visible) Render(_selectedDevice);
         DeviceUpdated?.Invoke(this, _selectedDevice);

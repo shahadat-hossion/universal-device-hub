@@ -84,9 +84,15 @@ public sealed class MouseMonitor
             var containerId = ReadGuid(set, data, ContainerId);
             var battery = ReadInt(set, data, BatteryLife) ?? FindContainerBattery(containerId);
             if (battery is < 0 or > 100) battery = null;
-            devices.Add(new(name, "Bluetooth", "Bluetooth", battery, null, id, containerId));
+            devices.Add(new(name, ClassifyBluetoothCategory(name), "Bluetooth", battery, null, id, containerId));
         }
         return devices;
+    }
+
+    private static string ClassifyBluetoothCategory(string name)
+    {
+        string[] audioTerms = ["airpod", "headphone", "headset", "earbud", "buds", "speaker", "audio", "hands-free"];
+        return audioTerms.Any(term => name.Contains(term, StringComparison.OrdinalIgnoreCase)) ? "Audio" : "Bluetooth";
     }
     private static string ClassifyConnection(string id, string name)
     {
