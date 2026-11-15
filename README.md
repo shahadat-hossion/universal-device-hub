@@ -55,7 +55,7 @@ Windows 10 and Windows 11 are supported where the underlying Windows device APIs
 ### Build
 
 ```powershell
-git clone https://github.com/YOUR-USERNAME/universal-device-hub.git
+git clone https://github.com/shahadat-hossion/universal-device-hub.git
 cd universal-device-hub
 dotnet build .\UniversalMouseHub.slnx -c Release
 dotnet run --project .\UniversalMouseHub\UniversalMouseHub.csproj
